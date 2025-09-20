@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="header__corner-icon">
+            <img src="images/icon.png" class="header__icon">
+        </a>
+        <div></div>
+        <nav class="navigation">
+            <ul class="navigation__list">
+                <li class="navigation__item"><a href="index.html" class="navigation__link">HOME</a></li>
+                <li class="navigation__item navigation__item--dropdown">
+                    <a href="about.html" class="navigation__link">ABOUT</a>
+                    <ul class="navigation__dropdown-content">
+                        <li class="navigation__item"><a href="about.html#artist" class="navigation__link">ARTIST</a></li>
+                        <li class="navigation__item"><a href="about.html#experience" class="navigation__link">EXPERIENCE</a></li>
+                        <li class="navigation__item"><a href="about.html#education" class="navigation__link">EDUCATION</a></li>
+                        <li class="navigation__item"><a href="about.html#illustration" class="navigation__link">ILLUSTRATION</a></li>
+                    </ul>
+                </li>
+                <li class="navigation__item"><a href="contact.html" class="navigation__link">CONTACT</a></li>
+                <li class="navigation__item"><a href="news.html" class="navigation__link">NEWS</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main">
+        <h1 class="main__title">Contact the Artist</h1>
+        <p class="main__text">If you would like to get in touch, please use the form below.</p>
+
+        <form class="main__form">
+            <label for="name" class="main__form-label">Name:</label>
+            <input type="text" id="name" class="main__form-input" required>
+
+            <label for="date" class="main__form-label">Date of Birth:</label>
+            <input type="date" id="date" class="main__form-input" required>
+
+            <label for="email" class="main__form-label">Email:</label>
+            <input type="email" id="email" class="main__form-input" required>
+
+            <label for="phone" class="main__form-label">Phone Number:</label>
+            <input type="tel" id="phone" class="main__form-input" required>
+
+            <label for="website" class="main__form-label">Website:</label>
+            <input type="url" id="website" class="main__form-input">
+
+            <label for="message" class="main__form-label">Your Message:</label>
+            <input type="text" id="message" class="main__form-input" required>
+
+            <button type="submit" class="main__form-button">Submit</button>
+        </form>
+
+    </main>
+    <footer class="footer">
+        <h4 class="footer__title">About me</h4>
+        <p class="footer__text">My name is Marie, and I'm really glad to see you on my site.</p>
+        <p class="footer__text">This site showcases my work, my experiences, and my artistic journey. Feel free to explore my
+           projects and learn more about what I do.</p>
+        <h4 class="footer__title">Contact Info</h4>
+        <p class="footer__text">If you'd like to reach out, here are my contact details:</p>
+        <ul class="footer__contact-list">
+            <li class="footer__contact-item">Email: xxx@gmail.com</li>
+            <li class="footer__contact-item">Phone: +380xxxxxxxxx</li>
+        </ul>
+    </footer>
+</body>
+</html>

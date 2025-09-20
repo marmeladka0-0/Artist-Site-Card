@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="header__corner-icon">
+            <img src="images/icon.png" class="header__icon">
+        </a>
+        <div></div>
+        <nav class="navigation">
+            <ul class="navigation__list">
+                <li class="navigation__item"><a href="index.html" class="navigation__link">HOME</a></li>
+                <li class="navigation__item navigation__item--dropdown">
+                    <a href="about.html" class="navigation__link">ABOUT</a>
+                    <ul class="navigation__dropdown-content">
+                        <li class="navigation__item"><a href="about.html#artist" class="navigation__link">ARTIST</a></li>
+                        <li class="navigation__item"><a href="about.html#experience" class="navigation__link">EXPERIENCE</a></li>
+                        <li class="navigation__item"><a href="about.html#education" class="navigation__link">EDUCATION</a></li>
+                        <li class="navigation__item"><a href="about.html#illustration" class="navigation__link">ILLUSTRATION</a></li>
+                    </ul>
+                </li>
+                <li class="navigation__item"><a href="contact.html" class="navigation__link">CONTACT</a></li>
+                <li class="navigation__item"><a href="news.html" class="navigation__link">NEWS</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section id="artist" class="main__section main__section--artist">
+            <img src="images/photoartist.jpg" class="main__image main__image--artist">
+            <article class="main__article main__article--artist">
+                <h2 class="main__title main__title--artist">Artist Biography</h2>
+                <p class="main__text main__text--artist"><b>My name is Marie</b>, and I'm a passionate artist with a deep love for both traditional painting and digital
+                illustration. I have always been captivated by the power of art to convey emotions, tell stories, and
+                capture the essence of the world around us. From a very young age, I discovered that creating art was not
+                just a hobby, but a lifelong calling that would shape my identity and purpose.</p>
+        
+                <p class="main__text main__text--artist">I have been creating art <i>since I was a child</i>, experimenting with different techniques and mediums. Initially,
+                I started with simple sketches and watercolors, which evolved into more complex compositions as I honed my
+                skills. Over the years, I learned to blend traditional methods with modern digital tools, which opened up a
+                world of possibilities in the realm of illustration.</p>
+                
+                <p class="main__text main__text--artist">I have had the <u>incredible opportunity to study and learn</u> from talented mentors, who have guided me through the
+                intricacies of artistic expression. Through their wisdom and encouragement, I have gained a deeper understanding
+                of both the technical and conceptual aspects of art. These mentors have also pushed me to explore new styles and
+                challenge my own limits, which has been invaluable in my artistic journey.</p>  
+            </article>
+            
+        </section>
+
+        <section id="experience" class="main__section main__section--experience">
+            <h2 class="main__title main__title--experience">Experience</h2>
+            <p class="main__text main__text--experience">Throughout my career, I have worked with various galleries and clients,
+                                                         participating in both group and solo exhibitions. Below is a timeline of my
+                                                         artistic journey:</p>
+            
+            <table id = "table--experience" class="main__table main__table--experience">
+                <thead>
+                    <tr>
+                        <th class="main__table-header">Year</th>
+                        <th class="main__table-header">Event</th>
+                        <th class="main__table-header">Country</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="main__table-data">2024</td>
+                        <td class="main__table-data">Solo Exhibition at XYZ Gallery</td>
+                        <td class="main__table-data">Ukraine</td>
+                    </tr>
+                    <tr>
+                        <td class="main__table-data">2022</td>
+                        <td class="main__table-data">Group Exhibition at ABC Art Space</td>
+                        <td class="main__table-data">France</td>
+                    </tr>
+                    <tr>
+                        <td class="main__table-data">2020</td>
+                        <td class="main__table-data">Freelance Projects for Various Clients</td>
+                        <td class="main__table-data">Ukraine</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="main__text main__text--experience">Choose the columns to swap:</p>
+            <div class="main__button-container">
+                <button class="main__table-button" onclick="swapColumns(0, 1)">1 and 2</button>
+                <button class="main__table-button" onclick="swapColumns(1, 2)">2 and 3</button>
+                <!--- <button class="main__table-button" onclick="swapColumns(0, 2)">1 and 3</button>-->
+            </div>
+
+            <script>
+                function swapColumns(colIndex1, colIndex2) {
+                    const table = document.getElementById('table--experience');
+
+                    /*Swap headers of columns*/
+                    const headerRow = table.tHead.rows[0];
+                    const th1 = headerRow.cells[colIndex1];
+                    const th2 = headerRow.cells[colIndex2];
+                    headerRow.insertBefore(th2, th1);
+                    headerRow.insertBefore(th1, headerRow.cells[colIndex2]);
+
+                    /*Swap data of columns*/
+                    for (const row of table.tBodies[0].rows) {
+                        const cell1 = row.cells[colIndex1];
+                        const cell2 = row.cells[colIndex2];
+                        row.insertBefore(cell2, cell1);
+                        row.insertBefore(cell1, row.cells[colIndex2]);
+                    }
+                }
+            </script>
+
+        </section>
+
+        <section id="education" class="main__section main__section--education">
+            <h2 class="main__title main__title--education">Education</h2>
+            <p class="main__text main__text--education">I studied Fine Arts at XYZ University, where I gained valuable knowledge in traditional and digital art techniques. Below is a summary of my academic background:</p>
+            
+            <ol class="main__list main__list--education">
+                <li class="main__list-item">Bachelor of Fine Arts - XYZ University (2015-2019)</li>
+                <li class="main__list-item">Master's in Digital Art - ABC Institute (2020-Present)</li>
+            </ol>
+        </section>
+
+        <section id="illustration" class="main__section main__section--illustration">
+            <h2 class="main__title main__title--illustration">Illustration</h2>
+            <p class="main__text main__text--illustration">My illustration work is inspired by nature and the human experience. I combine traditional mediums like watercolor with digital tools to create unique and engaging pieces. Here are a few examples of my recent work:</p>
+
+            <ul class="main__list main__list--illustration">
+                <li class="main__list-item">Nature Series</li>
+                <li class="main__list-item">Portraits Collection</li>
+                <li class="main__list-item">Fantasy Artworks</li>
+            </ul>
+
+            <h3 class="main__subtitle main__subtitle--illustration">Upcoming Projects</h3>
+            <ol class="main__list main__list--upcoming">
+                <li class="main__list-item">Nature-Inspired Digital Art
+                    <ul class="main__list main__list--sub">
+                        <li class="main__list-item">Wildlife Illustrations</li>
+                        <li class="main__list-item">Botanical Studies</li>
+                    </ul>
+                </li>
+                <li class="main__list-item">Fantasy Art Series
+                    <ul class="main__list main__list--sub">
+                        <li class="main__list-item">Mythical Creatures</li>
+                        <li class="main__list-item">Fantasy Landscapes</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h4 class="main__subtitle main__subtitle--illustration">Video: Artistic Process</h4>
+            <iframe class="main__video main__video--process" src="https://www.youtube.com/embed/MVGeW8JmYys" frameborder="0"></iframe>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <h4 class="footer__title">About me</h4>
+        <p class="footer__text">My name is Marie, and I'm really glad to see you on my site.</p>
+        <p class="footer__text">This site showcases my work, my experiences, and my artistic journey. Feel free to explore my
+           projects and learn more about what I do.</p>
+        <h4 class="footer__title">Contact Info</h4>
+        <p class="footer__text">If you'd like to reach out, here are my contact details:</p>
+        <ul class="footer__contact-list">
+            <li class="footer__contact-item">Email: xxx@gmail.com</li>
+            <li class="footer__contact-item">Phone: +380xxxxxxxxx</li>
+        </ul>
+    </footer>
+</body>
+</html>

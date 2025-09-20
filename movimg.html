@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moving Image</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+        margin: 0;
+        background-color:#555;
+        overflow: hidden; /* Prevent scrollbars */
+        }
+        .moving-img {
+        position: absolute;
+        width: 50px; /* Set image size */
+        }
+    </style>
+</head>
+<body>
+
+    <img class="moving-img" id="moving-img" src="images/icon.png" alt="Moving image" />
+
+    <script>
+        const img = document.getElementById('moving-img');
+
+        function moveImage() {
+        const maxX = window.innerWidth - img.width;
+        const maxY = window.innerHeight - img.height;
+
+        const newX = Math.random() * maxX;
+        const newY = Math.random() * maxY;
+
+        img.style.left = newX + 'px';
+        img.style.top = newY + 'px';
+        }
+
+        setInterval(moveImage, 1000);
+    </script>
+
+</body>
+</html>

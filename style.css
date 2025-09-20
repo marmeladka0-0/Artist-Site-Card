@@ -1,0 +1,555 @@
+/*-------GLOBAL-------*/
+
+* {
+    font-family: Arial, sans-serif;
+}
+
+body {
+    font-family: Arial, sans-serif; /* без засічок */
+    margin: 0; /* відстань між елементами */
+    padding: 0; /* між елементам та границями */
+    background-color: #f4f4f4;
+}
+
+/*-------HEADER-------*/
+
+header {
+    background-color: #555;
+    padding: 1% 2%;
+    width: 100%;
+    box-sizing: border-box;
+
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    
+    display: grid;
+    grid-template-columns: auto 1fr auto; /* лого | відступ| меню */
+    align-items: center; /* вертикальне вирівнювання */
+
+    /*display: flex; 
+    justify-content: space-between;
+    align-items: center;*/
+}
+
+.header__icon{
+    width: 50px; /* розмір картинки */
+}
+
+.header__corner-icon{
+    cursor: pointer;
+}
+
+.header__corner-icon:hover {
+    transform: scale(1.3);
+}
+
+.navigation__list {
+    list-style: none; /* прибирає крапки в списку */
+    margin: 0;
+    padding: 0;
+
+    display: grid;
+    grid-auto-flow: column; /* элементы в строку */
+
+    /*display: flex;*/
+}
+
+.navigation__item {
+    position: relative;
+    padding: 8px 2px;
+}
+
+.navigation__link {
+    text-decoration: none; /* прибирає стандартне підкреслення */
+    color: white;
+    font-size: 18px;
+    padding: 8px 12px;
+    display: block;
+}
+
+/*-------UPDOWN MENU-------*/
+
+.navigation__item--dropdown {
+    position: relative; /* трохи здвигається але залишається на тому ж місці */
+}
+
+.navigation__item--dropdown:hover .navigation__dropdown-content {
+    display: block;
+}
+
+.navigation__dropdown-content {
+    list-style: none;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #555;
+    min-width: 100px;
+    z-index: 1; /* дозволяє перекривати інші елементи */
+    margin: 0; /* Забираємо відступи */
+    padding: 0; /* Забираємо внутрішні відступи */
+}
+
+.navigation__dropdown-content .navigation__item {
+    padding: 8px 16px;
+    margin: 0; 
+}
+
+.navigation__dropdown-content .navigation__link {
+    color: white;
+    padding: 8 16px;
+    text-decoration: none;
+    text-align: left;
+    display: block;
+    margin: 0;
+}
+
+.navigation__dropdown-content .navigation__link:hover {
+    background-color: #9a9a9a;
+}
+
+/*-------FOOTER-------*/
+
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer__title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.footer__text {
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.footer__contact-list {
+    list-style: none;
+}
+
+/*-------MAIN-------*/
+
+main {
+    padding: 0;
+    padding-top: 80px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+.main__title {
+    text-align: center;
+}
+
+.main__text {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.main__aside {
+    margin-top: auto; /* Відштовхує в самий низ */
+    color: #333; /* Зробити текст білим */
+    padding: 20px;
+    text-align: center; /* текст по центру */
+}
+
+/*-------INTRODUCTION-------*/
+
+.introduction {
+    height: 100vh; /* щоб воно займало весь екран*/
+    display: grid;
+    place-items: center;
+    
+    align-items: center;
+    background: url('images/background_my.png') no-repeat center center/cover; /* зображення на фон */
+    color: aqua;    
+    text-align: center;
+
+    /*
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    */
+}
+
+.introduction h1 {
+    font-size: xx-large;
+    color: #f4f4f4;; /* колір тексту */
+    background: rgba(0, 0, 0, 0.7); /* задній трохи прозорий фон */
+    padding: 20px 80px;
+    margin-bottom: 0;
+    margin-top: 40vh;
+}
+
+.introduction p {
+    color: #28021d;
+    padding: 10px 57px;
+    font-size: medium;
+    background: rgba(255, 255, 255, 0.7);;
+    margin-top: 0;
+    margin-bottom: 10vh;
+}
+
+.introduction a{
+    background-color: #333;
+    color: #f4f4f4;
+    text-decoration: none;
+    padding: 12px 30px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    margin-bottom: 30vh;
+}
+
+.introduction a:hover{
+    background-color: #f4f4f4;
+    color: #28021d
+}
+
+/*-------ARTIST-------*/
+
+.main__section--artist {
+    /*display: flex;*/
+
+    display: grid;
+    grid-template-columns: 450px 1fr; /* перша колонка — зображення, друга — текст */
+    column-gap: 20px;/*на це замінила відступ*/
+
+    padding: 20px; /* відступ */
+    background-color: #f4f4f4; /* задній кольор */
+    height: min-content;
+}
+
+.main__image--artist {
+    width: 450px; 
+    object-fit: cover;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+
+    /*margin-right: 20px; *//* між картинкою та текстом */
+}
+
+.main__title--artist {
+    font-size: 1.5rem; /* root font size, залежить від дефолтного розміру */
+    color: #333; 
+    margin-bottom: 15px;
+}
+
+.main__text--artist {
+    font-size: 1.5rem;
+    line-height: 1.5; /* відступ між строчками*/
+    color: #555;
+    margin-bottom: 15px;
+}
+
+
+/*-------EXPERIENCE-------*/
+
+.main__section--experience {
+    /*background-color: #f9f9f9;*/
+    background-image: linear-gradient(to bottom, #e18a8a, #646464);
+    padding: 40px 20px;
+    margin: 20px 0; 
+}
+
+.main__title--experience {
+    font-size: 2rem; 
+    color: #f4f4f4; 
+    margin-bottom: 15px; 
+    text-align: center; 
+}
+
+.main__text--experience  {
+    font-size: 1.5rem; 
+    line-height: 1.5;
+    color: #f4f4f4; 
+    margin-bottom: 20px; 
+    text-align: center; 
+}
+
+.main__table--experience  {
+    width: 100%; 
+    border-collapse: collapse; 
+    margin-top: 20px; /* простір над таблицею */
+}
+
+.main__table-header {
+    padding: 12px; 
+    text-align: left; 
+    border: 1px solid #ddd;
+    background-color: #333; /* фон заголовка таблиці */
+    color: white; 
+    font-size: 1.5rem;  
+}
+
+.main__table-data {
+    padding: 12px; 
+    text-align: left; 
+    border: 1px solid #ddd;/* твердий */
+    color: #f4f4f4; 
+    font-size: 1.5rem;
+}
+
+/*-------buttons-to-swap-------*/
+
+.main__button-container{
+    display: grid;
+    grid-auto-flow: column;
+    gap: 20px;
+    justify-content: center;
+}
+
+.main__table-button {
+    background-color: #333;
+    color: #f4f4f4;;
+    text-decoration: none;
+    padding: 12px 40px;
+    font-size: 1.5rem;
+    transition: background-color 0.3s ease;
+    border: none;
+}
+
+.main__table-button:hover{
+    background-color: #f4f4f4;
+    color: #28021d;
+}
+
+/*-------EDUCATION + ILLUSTRATION-------*/
+
+.main__section--education,
+.main__section--illustration {
+    font-size: 1.5rem;
+    color: #555; 
+}
+
+.main__text--education {
+    text-align: left;
+}
+
+.main__text--illustration {
+    text-align: left;
+}
+
+.main__text--artist  {
+    text-align: left;
+}
+
+/*-------FORM-------*/
+
+.main__form {
+    /*display: flex;
+    flex-direction: column;
+    gap: 15px;*/
+
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 15px;
+
+    max-width: 500px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 30px;
+}
+
+.main__form-label {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+/* поля для вводу інформації*/
+.main__form-input {
+    padding: 12px;
+    font-size: 1.5rem;
+    border: 1px solid #ccc;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+/* це щоб воно не змінювалося на страшний варіант коли обирається */
+.main__form-input:focus {
+    border-color: #ccc;  
+    outline: none;
+}
+
+/* кнопочка */
+.main__form-button {
+    padding: 12px 20px;
+    background-color: #333;
+    color: #fff;
+    font-size: 1.5rem;
+    border: none;
+    cursor: pointer;/* змінює курсор на поінтер */
+    transition: background-color 0.3s ease;/* швидкість з якою кнопочка змінює  колір */
+    align-self: center;
+}
+
+/* кнопочка змінює колір коли її обирають */
+.main__form-button:hover {
+    background-color: #555;
+}
+
+/*-------NEWS PAGE-------*/
+
+.main--news {
+    padding-bottom: 20px;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.news-item {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+.news-item__title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.news-item__text {
+    font-size: 1rem;
+    color: #555;
+}
+
+.news-item__button {
+    background-color: #333;
+    color: #f4f4f4;;
+    text-decoration: none;
+    padding: 12px 30px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    border: 1px solid #333;
+}
+
+.news-item__button:hover{
+    background-color: #f4f4f4;
+    color: #28021d;
+    border: 1px dashed #f501c8; /*do the border dashed, .O.*/
+}
+
+/*-------PROGRESSBAR-------*/
+
+.news-item__progress-bar_container {
+    width: 100%;
+    height: 24px;
+    background-color: #ddd;
+    margin-top: 10px;
+}
+
+.news-item__progress-bar_fill {
+    height: 100%;
+    background-color: #570047;
+}
+
+/*-------CHECKBOXES-------*/
+
+.news-item__checkbox {
+    display: flex;
+    align-items: center;
+    font-size: 0.95rem;
+    color: #570047;
+}
+
+
+.news-item__checkbox input[type="checkbox"] {
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+    accent-color: #f501c8;
+    cursor: pointer;
+}
+
+/*-------FOR-PHONES-------*/
+
+@media (max-width: 768px) {
+    header {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: auto;
+    }
+
+    .header__icon{
+        display: none;
+    }
+
+    .navigation__item {
+        position: relative;
+        padding: 8px 0px;
+        
+    }
+
+    .navigation__list {
+        font-size: clamp(8px, 2vw, 16px); /*a minimum value, a preferred value, and a maximum allowed value*/
+        padding: 8px 0px;
+        justify-items: center;
+        
+    }
+
+    .main__text{
+        text-align: justify;
+    }
+
+    .main__section--artist {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .main__image--artist {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+
+    .main__title--artist {
+        text-align: center;
+    }
+
+    .main__form {
+        padding: 15px;
+    }
+
+    .main__form-input,
+    .main__form-button {
+        font-size: 1rem;
+    }
+
+    .introduction h1 {
+        font-size: 1.5rem;
+        padding: 15px;
+    }
+
+    .introduction p {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+
+    .introduction a {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    .main__table-header,
+    .main__table-data {
+        font-size: 1rem;
+        padding: 8px;
+    }
+
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+}

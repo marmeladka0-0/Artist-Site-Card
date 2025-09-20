@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="header__corner-icon">
+            <img src="images/icon.png" class="header__icon" alt="Logo">
+        </a>
+        <div></div>
+        <nav class="navigation">
+            <ul class="navigation__list">
+                <li class="navigation__item"><a href="index.html" class="navigation__link">HOME</a></li>
+                <li class="navigation__item navigation__item--dropdown">
+                    <a href="about.html" class="navigation__link">ABOUT</a>
+                    <ul class="navigation__dropdown-content">
+                        <li class="navigation__item"><a href="about.html#artist" class="navigation__link">ARTIST</a></li>
+                        <li class="navigation__item"><a href="about.html#experience" class="navigation__link">EXPERIENCE</a></li>
+                        <li class="navigation__item"><a href="about.html#education" class="navigation__link">EDUCATION</a></li>
+                        <li class="navigation__item"><a href="about.html#illustration" class="navigation__link">ILLUSTRATION</a></li>
+                    </ul>
+                </li>
+                <li class="navigation__item"><a href="contact.html" class="navigation__link">CONTACT</a></li>
+                <li class="navigation__item"><a href="news.html" class="navigation__link">NEWS</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main main--news">
+        <h1 class="main__title">Latest News</h1>
+        <section class="news-grid">
+            <article class="news-item">
+                <h2 class="news-item__title">A function that outputs text with different font sizes</h2>
+                <p class="news-item__text">The function has two arguments: a text string and font size:</p>
+                
+                <p id="outputText"></p>
+
+                <button class="news-item__button" onclick="showText('The custom text1', 26)">Show Text1</button>
+                <button class="news-item__button" onclick="showText('The custom text2', 50)">Show Text2</button>
+                <button class="news-item__button" onclick="showText('', 0)">Hide Text</button>
+
+                <script>
+                    function showText(text, fontSize) {
+                        const output = document.getElementById('outputText');
+                        output.textContent = text;
+                        output.style.fontSize = fontSize + 'px';
+                    }
+                </script>
+            </article>
+
+
+            <article class="news-item">
+                <h2 class="news-item__title">Find all p on the page and change their size</h2>
+                <p class="news-item__text">To change click the button below:</p>
+                <button class="news-item__button" onclick="changeP(15)">Set all p new value:15</button>
+                <button class="news-item__button" onclick="changeP(20)">Set all p new value:20</button>
+                <script>
+                    function changeP(fontSize) {
+                        const pr = document.getElementsByTagName('p');
+                        for (let i = 0; i < pr.length; i++) {
+                            pr[i].setAttribute('style', `font-size: ${fontSize}px;`);
+                        }
+                    }                   
+                </script>
+            </article>
+
+            <article class="news-item">
+                <h2 class="news-item__title">Text clock:</h2>
+
+                <p id="outputTime">the clock will be here</p>
+                <script>
+                    function addZero(value)
+                    {
+                        if (value < 10)
+                        {
+                            value='0'+value;
+                        }
+                        return value;
+                    }
+
+                    function updateTime()
+                    {
+                        var current = new Date();
+                        var hours = addZero(current.getHours());
+                        var minutes = addZero(current.getMinutes());
+                        var seconds = addZero(current.getSeconds());
+
+                        const output = document.getElementById('outputTime');
+                        output.textContent = hours+":"+minutes+":"+seconds;
+                        return hours+":"+minutes+":"+seconds;
+                    }
+
+                    /*var s = 0;
+
+                    function updateTime() {
+                        const output = document.getElementById('outputTime');
+                        s++;
+                        output.textContent = Math.floor(s / 3600) + ":" + Math.floor((s-(s/3600 * 3600))/60) + ":" + s % 60;
+                    }*/
+
+                    setInterval(updateTime, 1000);
+                </script>
+            </article>
+
+            <article class="news-item">
+                <div id="phrase-input"></div>
+
+                <script>
+                    const phraseText = "Display a phrase on the screen, coloring its letters in a given range of colors.";
+                    const colors = ["#333", "#f501c8", "#9a9a9a", "#570047", "#555"];
+
+                    const phrase = document.getElementById('phrase-input');
+
+                    phraseText.split('').forEach((char, i) => {
+                        const element = document.createElement('span');/*create a new element*/
+                        /*span is a tag like p, but don't do enters and can be in one line*/
+                        element.textContent = char;
+                        element.style.color = colors[i % colors.length];/*i % color.length - to apply colors in a circle*/
+                        phrase.appendChild(element);/*add this simbol in line*/
+                    });
+                </script>
+            </article>
+
+            <article class="news-item">
+                <h2 class="news-item__title">Block for progress bar</h2>
+                <p class="news-item__text">Progress bar below:</p>
+                <div class="news-item__progress-bar_container">
+                    <div class="news-item__progress-bar_fill" style="height:24px;width:20%"></div>
+                </div>
+            </article>
+
+            <article class="news-item">
+                <h2 class="news-item__title">Block for checkboxes</h2>
+                <p class="news-item__text">They do nothing, but at least they are stylized:</p>
+                <form class="news-item__form">
+                    <label class="news-item__checkbox">
+                        <input type="checkbox" name="option1" value="Option 1">
+                        Option 1
+                    </label><br>
+
+                    <label class="news-item__checkbox">
+                        <input type="checkbox" name="option2" value="Option 2">
+                        Option 2
+                    </label><br>
+
+                    <label class="news-item__checkbox">
+                        <input type="checkbox" name="option3" value="Option 3">
+                        Option 3
+                    </label><br>
+                </form>
+            </article>
+            
+            <!-- <article class="news-item" id="forWipingEffect"> -->
+            <article class="news-item">
+                <h2 class="news-item__title">Gradual Wiping</h2>
+                <p class="news-item__text">Create the effect of gradual wiping using a timer</p>
+                <div class="news-item__wipe-effect">
+                    <p id="forWipingEffect">Just add here something, to show how it works Just add here something, to show how it works
+                                            Just add here something, to show how it works Just add here something, to show how it works
+                                            Just add here something, to show how it works Just add here something, to show how it works
+                                            Just add here something, to show how it works Just add here something, to show how it works
+                                            Just add here something, to show how it works Just add here something, to show how it works 
+                                            Just add here something, to show how it works Just add here something, to show how it works
+                                            Just add here something, to show how it works Just add here something, to show how it works
+                                            Just add here something, to show how it works Just add here something, to show how it works
+                                            Just add here something, to show how it works Just add here something, to show how it works </p>
+                    <button class="news-item__button" onclick="GradualWiping()">Start Gradual Wiping</button>
+                </div>
+
+                <script>
+                    function GradualWiping() {
+                        let content = document.getElementById('forWipingEffect');
+                        let progress = 100;
+                        let timer = setInterval(function() {
+                            if (progress > 0) {
+                                progress -= 2;
+                                /*clip-path can be add for photo or block of the site also*/
+                                /*I can show also different variants*/
+                                content.style.clipPath = `inset(0 ${progress}% 0 0)`; /* change clip-path*/
+                                /*content.style.clipPath = `inset(0 ${100-progress}% 0 0)`; /* change clip-path*/
+                                /*content.style.clipPath = `ellipse(${(100-progress)*8}px ${100-progress}px at 50% 50%)`;*/
+                            } else {
+                                clearInterval(timer); /*stop the timer*/
+                            }
+                        }, 50);
+                    }
+                </script>
+            </article>
+
+            <article class="news-item">
+                <h2 class="news-item__title">The overpayment on the loan</h2>
+                <p class="news-item__text">Given the size of the mortgage loan, interest rate, number of years.</p>
+                <p class="news-item__text">Test data: 1000000   10    5</p>
+
+                <input type="number" id="news__sum" required>
+                <input type="number" id="news__rate" required>
+                <input type="number" id="news__years" required>
+
+                <button onclick="FoundPerepl()">Found overpayment</button>
+
+                <p id="news__perepl">Result will be here.</p>
+
+                <script>
+                    /*https://www.nationwide.co.uk/mortgages/mortgage-calculators/overpayment-calculator/*/
+                    /*https://www.navzaim.com.ua/ru/blog/kak-poschitat-protsenty-po-kreditu/*/
+                    function FoundPerepl() {
+                        const S = parseFloat(document.getElementById('news__sum').value);
+                        const p = parseFloat(document.getElementById('news__rate').value);
+                        const years = parseInt(document.getElementById('news__years').value);
+                        
+                        const m = p / 12 / 100; /*percent for month*/
+                        const n = years * 12; /*number of month*/
+
+                        const A = S * (m * Math.pow(1 + m, n)) / (Math.pow(1 + m, n) - 1); /*monthly payment*/
+                        const total = A * n;
+                        const perepl = total - S;
+
+                        document.getElementById('news__perepl').textContent = "Result: " + perepl + " UAH";
+                    }
+                </script>
+            </article>
+
+            <article class="news-item">
+                <p id="news__array">Result will be here.</p>
+                <button class="news-item__button" onclick="sortByHeight()">Sort by height</button>
+                <button class="news-item__button" onclick="sortByName()">Sort by name</button>
+
+                <script>
+                    let mas = ["abcde", "Marie", "computer", "program", "hi"];
+                    let ex = "";
+                    for (let i = 0; i < mas.length; i++) {
+                        ex += mas[i] + " ";
+                    }
+                    document.getElementById('news__array').textContent = ex;
+
+                    function sortByHeight() {
+                        for (let i = 0; i < mas.length - 1; i++) {
+                            for (let j = 0; j < mas.length-i -1; j++) {
+                                if (mas[j].length > mas[j+1].length) {
+                                    let e = mas[j];
+                                    mas[j] = mas[j+1];
+                                    mas[j+1] = e;
+                                }
+                            }
+                        }
+                        let ans = "";
+                        for (let i = 0; i < mas.length; i++) {
+                            ans += mas[i] + " ";
+                        }
+
+                        document.getElementById('news__array').textContent = ans;
+                    }    
+                    
+                    function sortByName() {
+                        for (let i = 0; i < mas.length - 1; i++) {
+                            for (let j = 0; j < mas.length-i -1; j++) {
+                                if (mas[j][0].toLowerCase() > mas[j+1][0].toLowerCase()) {
+                                    let e = mas[j];
+                                    mas[j] = mas[j+1];
+                                    mas[j+1] = e;
+                                }
+                            }
+                        }
+                        let ans = "";
+                        for (let i = 0; i < mas.length; i++) {
+                            ans += mas[i] + " ";
+                        }
+
+                        document.getElementById('news__array').textContent = ans;
+                    }   
+                </script>
+            </article>
+
+            <article class="news-item">
+                <p>Ivan lost his credit card yesterday, its number is 1178-9087-2384-8787. <br>
+                    So he went to the bank and described the situation. There they went to meet him <br>
+                    and issued a new credit card with the number: 1103-8899-0811-1722.</p>
+
+                <h2>Numbers of the cards:</h2>
+                <p id="news__result"></p>
+
+                <script>
+                    /*https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions*/
+                    const text = `Ivan lost his credit card yesterday, its number is 1178-9087-2384-8787.
+                    So he went to the bank and described the situation. There they went to meet him and 
+                    issued a new credit card with the number: 1103-8899-0811-1722.`;
+
+                    let textcopy = text;
+                    let num;
+
+                    const regex = /\b\d{4}-\d{4}-\d{4}-\d{4}\b/;
+                    let answer ="";
+                    while ((num = regex.exec(textcopy)) !== null) {
+                        answer += num[0] + "   ";  /*add a number*/
+                        textcopy = textcopy.replace(num[0], ''); /*delete this number from the copy of a text*/
+                    }
+
+                    const resultElement = document.getElementById('news__result');
+                    resultElement.textContent = answer;
+
+                </script>
+            </article>
+
+            <article class="news-item">
+                <h1>To open timer push the button below:</h1>
+                <button class="news-item__button" onclick="openTimer()">Open timer</button>
+
+                <script>
+                    function openTimer() {
+                    window.open('timer.html');
+                    }
+                </script>
+            </article>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <h4 class="footer__title">About me</h4>
+        <p class="footer__text">My name is Marie, and I'm really glad to see you on my site.</p>
+        <p class="footer__text">This site showcases my work, my experiences, and my artistic journey.</p>
+        <h4 class="footer__title">Contact Info</h4>
+        <ul class="footer__contact-list">
+            <li class="footer__contact-item">Email: xxx@gmail.com</li>
+            <li class="footer__contact-item">Phone: +380xxxxxxxxx</li>
+        </ul>
+    </footer>
+</body>
+</html>
